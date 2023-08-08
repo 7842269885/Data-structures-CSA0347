@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+int a,b,c;
+printf("enter the a value:");
+scanf("%d",&a);
+printf("enter the b value:");
+scanf("%d",&b);
+prinf("enter the c value");
+scanf("%d",&c);
+if(a>b&&a>c)
+{
+printf("a is greater:");
+}
+else if(b>c)
+{
+printf("b is greater:");
+}
+else
+{
+printf("c is greater:");
+}
+getch();
+return 0;
+}
