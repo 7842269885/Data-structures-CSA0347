@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+int array1[5],array2[5],size1,size2,i,j,merge[20];
+printf("enter the arry 1 size");
+scanf("%d",&size1);
+printf("enter array 1 elements");
+for(i=0;i<size1;i++)
+{
+    scanf("%d",&array[i]);
+merge [i]=arr1[i];
+}
+printf("enter the array2 size:");
+scanf("%d",&size2);
+printf("enter array2 elements:");
+for (i=0; i<size2;i++)
+{
+scanf("%d",&array2[i]);
+merge[i]=array1[i];
+j++;
+}
+printf("array after merging is;\n");
+for(i=0;i<j;i++)
+{
+printf("%d",merge[i]);
+}
+getch();
+return 0;
+}
+
