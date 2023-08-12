@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 10 // Size of the hash table
+struct HashEntry {
+    int key;
+    int value;
+};
+struct HashEntry* hashTable[SIZE];
+void initializeHashTable() {
+    for (int i = 0; i < SIZE; i++) {
+        hashTable[i] = NULL;
+    }
+}
+int hashFunction(int key) {
+    return key % SIZE;
+}
+void insert(int key, int value) {
+    struct HashEntry* newEntry = (struct HashEntry*)malloc(sizeof(struct HashEntry));
+    newEntry->key = key;
+    newEntry->value = value;
+
+    int index = hashFunction(key);
+    while (hashTable[index] != NULL) {
+        index = (index + 1) % SIZE;
+    }
+
+    hashTable[index] = newEntry;
+}
+int search(int key) {
+    int index = hashFunction(key);
+    while (hashTable[index] != NULL) {
+        if (hashTable[index]->key == key) {
+            return hashTable[index]->value;
+        }
+        index = (index + 1) % SIZE;
+    }
+
+    return -1; // Key not found
+}
+
+int main() {
+    initializeHashTable();
+
+    // Insert key-value pairs
+    insert(5, 100);
+    insert(25, 200);
+    insert(15, 300);
+    insert(35, 400);
+    int key1 = 15;
+    int value1 = search(key1);
+    if (value1 != -1) {
+        printf("Value for key %d: %d\n", key1, value1);
+    } else {
+        printf("Key %d not found.\n", key1);
+    }
+
+    int key2 = 10;
+    int value2 = search(key2);
+    if (value2 != -1) {
+        printf("Value for key %d: %d\n", key2, value2);
+    } else {
+        printf("Key %d not found.\n", key2);
+    }
+
+    return 0;
+}
